@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, constr, conint, confloat, validator
+from pydantic import BaseModel, EmailStr, constr, conint, confloat, field_validator
 
 class ExpertCreateSchema(BaseModel):
     name: constr(strict=True)
@@ -14,7 +14,7 @@ class ServiceCreateSchema(BaseModel):
     price: confloat(strict=True)
     duration: conint(strict=True)
 
-    @validator('service_type')
+    @field_validator('service_type')
     def validate_service_type(cls, v):
         if v not in ['video_meeting', 'priority_dm']:
             raise ValueError("Invalid service type. Must be 'video_meeting' or 'priority_dm'.")
