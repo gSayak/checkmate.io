@@ -16,7 +16,7 @@
 - **`POST /api/login`** - Login to an expert account and receive a JWT.
 - **`POST /api/services/`** - Create new services after logging in.
 - **`GET /api/get-status`** - Check all bookings made for an expert’s services.
-- **`GET /api/bookings/messages`** - Retrieve messages sent in priority DMs using a booking ID.
+- **`GET /api/bookings/messages/?<booking_id>`** - Retrieve messages sent in priority DMs using a booking ID.
 
 ### For Consumers:
 - **`POST /api/bookings`** - Book a service by an expert.
@@ -35,3 +35,12 @@
 1. Clone the repository:
    ```bash
    git clone https://github.com/gSayak/checkmate.io.git
+   ```
+2. Add a `.env` file with the supabase.com:
+   ```
+   DATABASE_URI: <Database URI>
+   ```
+3. Start the app using:
+  ```bash
+  python -m api.index  
+  ```
