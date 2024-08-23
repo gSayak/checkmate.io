@@ -8,7 +8,7 @@ class Booking(db.Model):
     __tablename__ = 'bookings'
 
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    service_id = db.Column(db.Integer, db.ForeignKey('services.id'), nullable=False)
+    service_id = db.Column(UUID(as_uuid=True), db.ForeignKey('services.id'), nullable=False)
     user_email = db.Column(db.String(100), nullable=False)
     status = db.Column(db.String(50), default='pending')  # 'pending', 'completed', 'expired'
     booking_time = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
